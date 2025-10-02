@@ -8,6 +8,8 @@ return {
       filetype = {
         python = "python3 -u",
         go = "go run",
+        javascript = "node",
+        typescript = "ts-node",
       },
     })
   end,
