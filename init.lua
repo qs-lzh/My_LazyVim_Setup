@@ -39,3 +39,30 @@ vim.opt.statusline = "%f"
 
 -- show filename ont the top of each buffer
 vim.o.winbar = "%t"
+
+-- local dap = require("dap")
+-- -- Leader 风格调试快捷键
+-- vim.keymap.set("n", "<F6>", dap.continue, { desc = "DAP Continue" })
+-- vim.keymap.set("n", "<leader>du", dap.step_over, { desc = "DAP Step Over" })
+-- vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP Step Into" })
+-- vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "DAP Step Out" })
+-- vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP Toggle Breakpoint" })
+-- vim.keymap.set("n", "<leader>dB", function()
+--   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+-- end, { desc = "DAP Conditional Breakpoint" })
+-- vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "DAP REPL" })
+-- vim.keymap.set("n", "<leader>dl", dap.run_last, { desc = "DAP Run Last" })
+
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+-- Leader + j/k → 十行上下移动
+map("n", "<Leader>j", "10j", opts)
+map("n", "<Leader>k", "10k", opts)
+-- Leader + h/l → 行首行尾
+map("n", "<Leader>h", "^", opts) -- 行首第一个非空字符
+map("n", "<Leader>l", "$", opts) -- 行尾
+-- 可视模式也生效（可选）
+map("v", "<Leader>j", "10j", opts)
+map("v", "<Leader>k", "10k", opts)
+map("v", "<Leader>h", "^", opts)
+map("v", "<Leader>l", "$", opts)
