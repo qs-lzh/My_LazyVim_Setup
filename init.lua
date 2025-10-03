@@ -56,13 +56,13 @@ vim.o.winbar = "%t"
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 -- Leader + j/k → 十行上下移动
-map("n", "<Leader>j", "10j", opts)
-map("n", "<Leader>k", "10k", opts)
+map("n", "<Leader>j", "20j", opts)
+map("n", "<Leader>k", "20k", opts)
 -- Leader + h/l → 行首行尾
 map("n", "<Leader>h", "^", opts) -- 行首第一个非空字符
 -- 可视模式也生效（可选）
-map("v", "<Leader>j", "10j", opts)
-map("v", "<Leader>k", "10k", opts)
+map("v", "<Leader>j", "20j", opts)
+map("v", "<Leader>k", "20k", opts)
 map("v", "<Leader>h", "^", opts)
 map("v", "<Leader>l", "$", opts)
 -- map("n", "<Leader>l", "$", "") 需要延迟执行
