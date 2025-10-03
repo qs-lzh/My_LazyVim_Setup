@@ -60,9 +60,16 @@ map("n", "<Leader>j", "10j", opts)
 map("n", "<Leader>k", "10k", opts)
 -- Leader + h/l → 行首行尾
 map("n", "<Leader>h", "^", opts) -- 行首第一个非空字符
-map("n", "<Leader>l", "$", opts) -- 行尾
 -- 可视模式也生效（可选）
 map("v", "<Leader>j", "10j", opts)
 map("v", "<Leader>k", "10k", opts)
 map("v", "<Leader>h", "^", opts)
 map("v", "<Leader>l", "$", opts)
+-- map("n", "<Leader>l", "$", "") 需要延迟执行
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    pcall(vim.keymap.del, "n", "<leader>l")
+    vim.keymap.set("n", "<leader>l", "$", { desc = "行尾" })
+  end,
+})
