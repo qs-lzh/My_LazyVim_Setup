@@ -41,19 +41,6 @@ vim.opt.statusline = "%f"
 -- show filename ont the top of each buffer
 vim.o.winbar = "%t"
 
--- local dap = require("dap")
--- -- Leader 风格调试快捷键
--- vim.keymap.set("n", "<F6>", dap.continue, { desc = "DAP Continue" })
--- vim.keymap.set("n", "<leader>du", dap.step_over, { desc = "DAP Step Over" })
--- vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP Step Into" })
--- vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "DAP Step Out" })
--- vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP Toggle Breakpoint" })
--- vim.keymap.set("n", "<leader>dB", function()
---   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
--- end, { desc = "DAP Conditional Breakpoint" })
--- vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "DAP REPL" })
--- vim.keymap.set("n", "<leader>dl", dap.run_last, { desc = "DAP Run Last" })
-
 -- set HJKL to move cursor
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -70,5 +57,14 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "K", "25k", { desc = "25 rows up" })
     pcall(vim.keymap.del, "n", "L")
     vim.keymap.set("n", "L", "$", { desc = "end of line" })
+  end,
+})
+
+-- change the startpage from default alpha-nvim to telescope
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argv(0) == "" then
+      require("telescope.builtin").find_files()
+    end
   end,
 })
