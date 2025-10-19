@@ -59,12 +59,3 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "L", "$", { desc = "end of line" })
   end,
 })
-
--- change the startpage from default alpha-nvim to telescope
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argv(0) == "" then
-      require("telescope.builtin").find_files()
-    end
-  end,
-})
