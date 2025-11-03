@@ -8,6 +8,7 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("gopls")
 
 --select colorscheme
+--use onedark in dark mode or onelight in light mode
 -- vim.cmd.colorscheme("onedark")
 vim.cmd.colorscheme("onelight")
 

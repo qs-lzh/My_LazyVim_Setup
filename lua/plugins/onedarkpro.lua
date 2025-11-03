@@ -7,6 +7,7 @@ return {
         transparency = true,
       },
       highlights = {
+        -- if in dark mode, use this, otherwise comment out the line
         -- Cursor = { fg = "#FFFFFF", bg = "#FFFFFF" },
       },
     })
