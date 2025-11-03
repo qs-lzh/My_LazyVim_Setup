@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
---require("smear_cursor").enabled = true
+require("smear_cursor").enabled = true
 
 --add language server here, no other configuration needed, as long as you have installed the language servers on your computer.
 --the reason is that LazyVim have set some lsp, cmp and other plugins by default.
@@ -8,7 +8,8 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("gopls")
 
 --select colorscheme
-vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("onelight")
 
 --keyboard map configuration here
 vim.keymap.set("n", "<F5>", ":RunCode<CR>", { noremap = true, silent = false })
@@ -20,6 +21,9 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live gr
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Search in current buffer" })
+
+--keyboard map to replace "redo" to U
+vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
 
 -- keyboard map for open current HTML file with browser
 vim.keymap.set("n", "<F6>", function()
@@ -57,5 +61,14 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "K", "25k", { desc = "25 rows up" })
     pcall(vim.keymap.del, "n", "L")
     vim.keymap.set("n", "L", "$", { desc = "end of line" })
+    -- in visual mode
+    pcall(vim.keymap.del, "v", "H")
+    vim.keymap.set("v", "H", "^", { desc = "start of line" })
+    pcall(vim.keymap.del, "v", "J")
+    vim.keymap.set("v", "J", "25j", { desc = "25 lines down" })
+    pcall(vim.keymap.del, "v", "K")
+    vim.keymap.set("v", "K", "25k", { desc = "25 rows up" })
+    pcall(vim.keymap.del, "v", "L")
+    vim.keymap.set("v", "L", "$", { desc = "end of line" })
   end,
 })

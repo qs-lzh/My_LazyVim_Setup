@@ -7,7 +7,7 @@ return {
         transparency = true,
       },
       highlights = {
-        Cursor = { fg = "#FFFFFF", bg = "#FFFFFF" },
+        -- Cursor = { fg = "#FFFFFF", bg = "#FFFFFF" },
       },
     })
   end,
