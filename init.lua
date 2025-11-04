@@ -9,8 +9,8 @@ vim.lsp.enable("gopls")
 
 --select colorscheme
 --use onedark in dark mode or onelight in light mode
--- vim.cmd.colorscheme("onedark")
-vim.cmd.colorscheme("onelight")
+vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("onelight")
 
 --keyboard map configuration here
 vim.keymap.set("n", "<F5>", ":RunCode<CR>", { noremap = true, silent = false })
