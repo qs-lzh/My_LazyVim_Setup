@@ -13,7 +13,6 @@ return {
             { "gk", vim.lsp.buf.hover, desc = "LSP Hover Documentation" },
             { "gT", vim.lsp.buf.type_definition, desc = "LSP Type Definition" },
             { "gD", vim.lsp.buf.declaration, desc = "LSP Declaration" },
-            { "<leader>e", vim.diagnostic.open_float, desc = "Show diagnostics" },
           },
         },
       },
