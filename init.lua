@@ -2,10 +2,11 @@
 require("config.lazy")
 require("smear_cursor").enabled = true
 
---add language server here, no other configuration needed, as long as you have installed the language servers on your computer.
---the reason is that LazyVim have set some lsp, cmp and other plugins by default.
+-- lsp config
 vim.lsp.enable("pyright")
 vim.lsp.enable("gopls")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
 
 --select colorscheme
 --use onedark in dark mode or onelight in light mode
